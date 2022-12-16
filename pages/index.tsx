@@ -9,11 +9,37 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <h1 className="text-3xl font-bold underline text-white">
-          Hello world!
-        </h1>
-      </main>
+      <div className="flex flex-1 h-full">
+        <div className="flex-1 border-r border-zinc-800">
+          <div className="my-6 p-4">
+            <textarea
+              name="content"
+              rows={12}
+              className="w-full bg-zinc-900 text-white outline-none resize-none mb-5"
+              placeholder="Place your content here..."
+            />
+            <button
+              type="button"
+              className="text-white bg-zinc-800  hover:bg-zinc-700 focus:outline-none focus:ring-1 focus:ring-zinc-600 font-medium rounded-lg text-sm px-5 py-2.5"
+            >
+              Summarize
+            </button>
+          </div>
+        </div>
+        <div className="flex-1">
+          <div className="text-white rounded-md my-6 p-4">
+            <p>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+              penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+              Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
+              sem. Nulla consequat massa quis enim. Donec pede justo, fringilla
+              vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
+              imperdiet a, venenatis vitae, justo.
+            </p>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
