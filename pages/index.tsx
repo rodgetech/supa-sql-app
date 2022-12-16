@@ -14,8 +14,8 @@ export default function Home() {
           <div className="my-6 p-4">
             <textarea
               name="content"
-              rows={10}
-              className="w-full bg-zinc-900 text-white outline-none resize-none"
+              rows={12}
+              className="w-full bg-zinc-900 text-white outline-none resize-none mb-5"
               placeholder="Place your content here..."
             />
             <button
