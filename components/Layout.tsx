@@ -7,7 +7,7 @@ type Props = {
 export default function Layout({ children }: Props) {
   return (
     <div className="flex flex-col h-screen">
-      <div className="flex h-16  items-center px-4 bg-zinc-800/20">
+      <div className="flex h-16  items-center px-14 bg-zinc-800/20">
         <div className="flex-1">
           <h3 className="text-white text-2xl font-bold">Supa Summari</h3>
         </div>
