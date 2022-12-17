@@ -4,7 +4,7 @@ import Code from "../components/Code";
 import QueryForm, { FormValues } from "../components/Form";
 
 export default function Home() {
-  const [result, setResult] = useState();
+  const [result, setResult] = useState("");
 
   const generateQuery = async (values: FormValues) => {
     const response = await fetch("/api/generate", {
@@ -35,10 +35,10 @@ export default function Home() {
       <div className="grid grid-cols-2  h-full">
         <div className=" border-r border-zinc-800">
           <div className="my-6 p-6">
-            <QueryForm onSubmit={generateQuery} />
+            <QueryForm onSubmit={generateQuery} onReset={() => setResult("")} />
           </div>
         </div>
-        <div className="">
+        <div>
           <div className="my-6 p-6">
             {result && (
               <>
@@ -47,6 +47,11 @@ export default function Home() {
                 </h2>
                 <Code sql={result} />
               </>
+            )}
+            {!result && (
+              <h2 className="text-2xl text-zinc-700 text-center py-6">
+                SQL output
+              </h2>
             )}
           </div>
         </div>

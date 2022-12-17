@@ -10,6 +10,7 @@ export type FormValues = {
 
 type Props = {
   onSubmit: (value: FormValues) => void;
+  onReset: () => void;
 };
 
 export default function QueryForm(props: Props) {
@@ -17,6 +18,7 @@ export default function QueryForm(props: Props) {
     register,
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FormValues>({
     defaultValues: {
@@ -24,20 +26,27 @@ export default function QueryForm(props: Props) {
     },
     mode: "onBlur",
   });
+
   const { fields, append, remove } = useFieldArray({
     name: "table",
     control,
   });
+
   const onSubmit = (data: FormValues) => {
     console.log(data);
     props.onSubmit(data);
+  };
+
+  const handleReset = () => {
+    reset();
+    props.onReset();
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
       <div className="space-y-5">
         <h2 className="text-white text-xl">
-          Please describe your{" "}
+          1. Please describe your{" "}
           <span className="underline decoration-purple-500 underline-offset-4">
             tables
           </span>{" "}
@@ -91,7 +100,7 @@ export default function QueryForm(props: Props) {
       </div>
       <div className="space-y-5">
         <h2 className="text-white text-xl">
-          What would you like your{" "}
+          2. What would you like your{" "}
           <span className="underline decoration-purple-500 underline-offset-4">
             query
           </span>{" "}
@@ -104,17 +113,25 @@ export default function QueryForm(props: Props) {
             })}
             rows={3}
             className="w-full bg-zinc-900 text-white outline-none resize-none border-b border-zinc-800 py-2"
-            placeholder="Add query details"
+            placeholder="Add query details, be as specific as possible"
           />
         </div>
       </div>
 
-      <button
-        type="submit"
-        className="text-white bg-purple-800  hover:bg-purple-700 focus:outline-none focus:ring-1 focus:ring-zinc-600 font-medium rounded-lg text-sm px-8 py-2.5"
-      >
-        Show me the Sql
-      </button>
+      <div className="flex items-center space-x-5">
+        <button
+          type="submit"
+          className="text-white bg-purple-800  hover:bg-purple-700 focus:outline-none focus:ring-1 focus:ring-zinc-600 font-medium rounded-lg text-sm px-8 py-2.5"
+        >
+          Show me the Sql
+        </button>
+        <p
+          className="text-zinc-500 cursor-pointer hover:text-white"
+          onClick={handleReset}
+        >
+          Reset
+        </p>
+      </div>
     </form>
   );
 }
