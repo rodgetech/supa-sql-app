@@ -47,6 +47,11 @@ export default function Layout({ children }: Props) {
         <div className="border-b border-zinc-800 p-2">
           <ul className="flex justify-center space-x-9">
             <li>
+              <Link href="/" className="text-zinc-300 hover:text-white">
+                Generate
+              </Link>
+            </li>
+            <li>
               <Link href="/history" className="text-zinc-300 hover:text-white">
                 History
               </Link>
