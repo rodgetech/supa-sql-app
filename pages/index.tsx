@@ -1,7 +1,10 @@
 import Head from "next/head";
 import Code from "../components/Code";
+import QueryForm, { FormValues } from "../components/Form";
 
 export default function Home() {
+  const generateQuery = (values: FormValues) => {};
+
   return (
     <>
       <Head>
@@ -16,18 +19,7 @@ export default function Home() {
       <div className="flex flex-1 h-full">
         <div className="flex-1 border-r border-zinc-800">
           <div className="my-6 p-6">
-            <textarea
-              name="content"
-              rows={12}
-              className="w-full bg-zinc-900 text-white outline-none resize-none mb-5"
-              placeholder="Place your content here..."
-            />
-            <button
-              type="button"
-              className="text-white bg-zinc-800  hover:bg-zinc-700 focus:outline-none focus:ring-1 focus:ring-zinc-600 font-medium rounded-lg text-sm px-5 py-2.5"
-            >
-              Summarize
-            </button>
+            <QueryForm onSubmit={generateQuery} />
           </div>
         </div>
         <div className="flex-1">
