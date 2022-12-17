@@ -102,7 +102,7 @@ export default function QueryForm(props: Props) {
             {...register("details", {
               required: true,
             })}
-            rows={1}
+            rows={3}
             className="w-full bg-zinc-900 text-white outline-none resize-none border-b border-zinc-800 py-2"
             placeholder="Add query details"
           />

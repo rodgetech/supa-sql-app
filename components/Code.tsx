@@ -17,10 +17,14 @@ ORDER BY
 distance;
 `;
 
-export default function Code() {
+type Props = {
+  sql: string;
+};
+
+export default function Code({ sql }: Props) {
   const parent = useRef<HTMLDivElement>(null);
   const [copied, setCopied] = useState(false);
-  const code = format(exampleCode);
+  const code = format(sql);
 
   const handleCopy = () => {
     setCopied(true);
