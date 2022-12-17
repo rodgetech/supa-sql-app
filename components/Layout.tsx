@@ -7,7 +7,7 @@ type Props = {
 export default function Layout({ children }: Props) {
   return (
     <div className="flex flex-col h-screen">
-      <div className="flex h-16  items-center justify-center px-4 bg-zinc-800/20 space-x-6">
+      <div className="flex p-3 tems-center justify-center px-4 bg-zinc-800/20 space-x-6">
         <div>
           <h3 className="text-white text-2xl font-bold">Supa Sql Generator</h3>
         </div>
@@ -20,7 +20,7 @@ export default function Layout({ children }: Props) {
           </button>
         </div>
       </div>
-      <div className="flex-1 h-full">{children}</div>
+      <div className="h-full">{children}</div>
     </div>
   );
 }
