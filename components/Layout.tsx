@@ -43,6 +43,25 @@ export default function Layout({ children }: Props) {
           )}
         </div>
       </div>
+      {session && (
+        <div className="border-b border-zinc-800 p-2">
+          <ul className="flex justify-center space-x-9">
+            <li>
+              <Link href="/history" className="text-zinc-300 hover:text-white">
+                History
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/templates"
+                className="text-zinc-300 hover:text-white"
+              >
+                Templates
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
       <div className="h-full">{children}</div>
     </div>
   );
