@@ -32,7 +32,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="grid grid-cols-2  h-full">
+      <div className="grid h-full  grid-cols-2">
         <div className=" border-r border-zinc-800">
           <div className="my-6 p-6">
             <QueryForm onSubmit={generateQuery} onReset={() => setResult("")} />
@@ -42,14 +42,14 @@ export default function Home() {
           <div className="my-6 p-6">
             {result && (
               <>
-                <h2 className="text-white text-xl mb-5">
+                <h2 className="mb-5 text-xl text-white">
                   Ta-da! Here&apos;s your sql query
                 </h2>
                 <Code sql={result} />
               </>
             )}
             {!result && (
-              <h2 className="text-2xl text-zinc-700 text-center py-6">
+              <h2 className="py-6 text-center text-2xl text-zinc-700">
                 SQL output
               </h2>
             )}
