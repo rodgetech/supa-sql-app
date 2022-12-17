@@ -7,8 +7,8 @@ type Props = {
 export default function Layout({ children }: Props) {
   return (
     <div className="flex flex-col h-screen">
-      <div className="flex h-16  items-center px-12 bg-zinc-800/20">
-        <div className="flex-1">
+      <div className="flex h-16  items-center justify-center px-4 bg-zinc-800/20 space-x-6">
+        <div>
           <h3 className="text-white text-2xl font-bold">Supa Sql Generator</h3>
         </div>
         <div className="flex-none">
