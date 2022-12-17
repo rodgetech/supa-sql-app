@@ -36,14 +36,14 @@ export default function Code({ sql }: Props) {
 
   return (
     <div>
-      <div className="bg-zinc-800/20 py-1 px-4  text-white rounded-tl-md rounded-tr-md text-right border-t border-l border-r border-zinc-800">
+      <div className="rounded-tl-md rounded-tr-md border-t  border-l border-r border-zinc-800 bg-zinc-800/20 py-1 px-4 text-right text-white">
         <div ref={parent}>
           {!copied && (
             <CopyToClipboard text={code} onCopy={handleCopy}>
-              <p className="text-sm cursor-pointer">Copy code</p>
+              <p className="cursor-pointer text-sm">Copy code</p>
             </CopyToClipboard>
           )}
-          {copied ? <p className="text-sm ml-2">Copied!</p> : null}
+          {copied ? <p className="ml-2 text-sm">Copied!</p> : null}
         </div>
       </div>
       <div>
