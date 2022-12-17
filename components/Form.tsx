@@ -38,8 +38,13 @@ export default function QueryForm(props: Props) {
       <div className="space-y-5">
         <h2 className="text-white text-xl">
           Please describe your{" "}
-          <span className="underline decoration-purple-500">tables</span> and{" "}
-          <span className="underline decoration-purple-500">fields</span>
+          <span className="underline decoration-purple-500 underline-offset-4">
+            tables
+          </span>{" "}
+          and{" "}
+          <span className="underline decoration-purple-500 underline-offset-4">
+            fields
+          </span>
         </h2>
         {fields.map((field, index) => (
           <div key={field.id} className="flex space-x-5">
@@ -87,7 +92,10 @@ export default function QueryForm(props: Props) {
       <div className="space-y-5">
         <h2 className="text-white text-xl">
           What would you like your{" "}
-          <span className="underline decoration-purple-500">query</span> to do?
+          <span className="underline decoration-purple-500 underline-offset-4">
+            query
+          </span>{" "}
+          to do?
         </h2>
         <div>
           <textarea
@@ -103,7 +111,7 @@ export default function QueryForm(props: Props) {
 
       <button
         type="submit"
-        className="text-white bg-zinc-800  hover:bg-zinc-700 focus:outline-none focus:ring-1 focus:ring-zinc-600 font-medium rounded-lg text-sm px-8 py-2.5"
+        className="text-white bg-purple-800  hover:bg-purple-700 focus:outline-none focus:ring-1 focus:ring-zinc-600 font-medium rounded-lg text-sm px-8 py-2.5"
       >
         Show me the Sql
       </button>
