@@ -11,7 +11,7 @@ export default function Home() {
       </Head>
       <div className="flex flex-1 h-full">
         <div className="flex-1 border-r border-zinc-800">
-          <div className="my-6 p-4">
+          <div className="my-6 p-6">
             <textarea
               name="content"
               rows={12}
@@ -27,7 +27,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex-1">
-          <div className="text-white rounded-md my-6 p-4">
+          <div className="text-white rounded-md my-6 p-6">
             <p>
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
               commodo ligula eget dolor. Aenean massa. Cum sociis natoque
