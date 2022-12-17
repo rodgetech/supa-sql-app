@@ -17,13 +17,6 @@ export default async function handler(
     data: { session },
   } = await supabase.auth.getSession();
 
-  if (!session)
-    return res.status(401).json({
-      error: "not_authenticated",
-      description:
-        "The user does not have an active session or is not authenticated",
-    });
-
   const data = req.body as FormValues;
 
   const prompt = generatePrompt(data);
@@ -41,6 +34,8 @@ export default async function handler(
 
   const sql = `SELECT ${response.data.choices[0].text}`;
 
+  if (!session) return res.status(200).json({ result: sql });
+
   const { error } = await supabase.from("translation_histories").insert({
     profile_id: session.user.id,
     generated_prompt: prompt,
@@ -49,7 +44,10 @@ export default async function handler(
     tables: data.table,
   });
 
-  if (error) console.log({ error });
+  if (error) {
+    console.log({ error });
+    return res.status(500).json({ error: "Failed to save history" });
+  }
 
   res.status(200).json({ result: sql });
 }

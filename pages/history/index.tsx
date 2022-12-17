@@ -44,7 +44,7 @@ export default function History({ history }: { user: User; history: any[] }) {
         <h2 className="text-xl text-white">Your history</h2>
       </div>
       <div className="mt-8">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-5">
           {history.map((h, i) => (
             <Link href={`/history/${h.id}`} key={i}>
               <div className="rounded-md border border-zinc-800 bg-zinc-800/20 p-4 hover:border-zinc-700">
