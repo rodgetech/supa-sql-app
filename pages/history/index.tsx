@@ -37,7 +37,12 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   };
 };
 
-export default function History({ history }: { user: User; history: any[] }) {
+export default function HistoryList({
+  history,
+}: {
+  user: User;
+  history: any[];
+}) {
   return (
     <div className="mx-auto mt-6 w-8/12 pb-20">
       <div className="mt-12">

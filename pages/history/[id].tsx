@@ -34,7 +34,7 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   };
 };
 
-export default function History({ history }: { history: any }) {
+export default function HistoryDetails({ history }: { history: any }) {
   const [result, setResult] = useState(history.query_completion);
 
   const generateQuery = async (values: FormValues) => {
