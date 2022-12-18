@@ -19,6 +19,9 @@ export default function Layout({ children }: Props) {
   const signInWithGitHub = async () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "github",
+      options: {
+        redirectTo: window.location.origin,
+      },
     });
   };
 
