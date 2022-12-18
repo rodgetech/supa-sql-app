@@ -6,6 +6,16 @@ Supa sql app is service to assist people with writting their sql queries. Someti
 
 While the main purpose of this project is to showcase as part of the Supabase hackaton, I hope that some people may find it useful while writting basic and complex queries.
 
+## Features
+
+- Login/Logout with your GitHub account
+- Translate human language (details about your tables and query instructions) to valid sql queries.
+- Manage your generated sql history
+
+## Live demo
+
+https://supasqlapp.vercel.app/
+
 ## Team
 
 I was to only person to work on this project. You can find me on [Twitter](https://twitter.com/luis_rodge).
