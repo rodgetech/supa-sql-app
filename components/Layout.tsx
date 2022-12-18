@@ -24,11 +24,11 @@ export default function Layout({ children }: Props) {
             <h3 className="text-2xl font-bold text-white">Supa Sql App</h3>
           </Link>
         </div>
-        <div className="flex-none">
+        <div className="flex items-center justify-center">
           {!session && (
             <button
               onClick={signInWithGitHub}
-              className="rounded-lg bg-zinc-800  px-6 py-2 text-sm font-medium text-white hover:bg-zinc-700 focus:outline-none focus:ring-1 focus:ring-zinc-600"
+              className="rounded-lg bg-zinc-800 px-6 py-1 text-sm font-medium text-white hover:bg-zinc-700 focus:outline-none focus:ring-1 focus:ring-zinc-600"
             >
               Sign in with GitHub
             </button>
@@ -36,7 +36,7 @@ export default function Layout({ children }: Props) {
           {session && (
             <button
               onClick={() => supabase.auth.signOut()}
-              className="rounded-lg bg-zinc-800  px-6 py-2 text-sm font-medium text-white hover:bg-zinc-700 focus:outline-none focus:ring-1 focus:ring-zinc-600"
+              className="rounded-lg bg-zinc-800 px-6 py-1 text-sm font-medium text-white hover:bg-zinc-700 focus:outline-none focus:ring-1 focus:ring-zinc-600"
             >
               Sign out
             </button>
@@ -47,16 +47,13 @@ export default function Layout({ children }: Props) {
         <div className="border-b border-zinc-800 p-2">
           <ul className="flex justify-center space-x-9">
             <li>
-              <Link href="/history" className="text-zinc-300 hover:text-white">
-                History
+              <Link href="/" className="text-zinc-300 hover:text-white">
+                Generate sql
               </Link>
             </li>
             <li>
-              <Link
-                href="/templates"
-                className="text-zinc-300 hover:text-white"
-              >
-                Templates
+              <Link href="/history" className="text-zinc-300 hover:text-white">
+                Your history
               </Link>
             </li>
           </ul>

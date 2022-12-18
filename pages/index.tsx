@@ -5,8 +5,10 @@ import QueryForm, { FormValues } from "../components/Form";
 
 export default function Home() {
   const [result, setResult] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const generateQuery = async (values: FormValues) => {
+    setLoading(true);
     const response = await fetch("/api/generate", {
       method: "POST",
       headers: {
@@ -16,9 +18,8 @@ export default function Home() {
     });
     const data = await response.json();
 
-    console.log(data);
-
     setResult(data.result);
+    setLoading(false);
   };
 
   return (
@@ -50,7 +51,7 @@ export default function Home() {
             )}
             {!result && (
               <h2 className="py-6 text-center text-2xl text-zinc-700">
-                SQL output
+                {loading ? "Generating sql..." : "SQL output"}
               </h2>
             )}
           </div>

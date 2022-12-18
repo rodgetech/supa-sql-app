@@ -5,23 +5,12 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useRef, useState } from "react";
 import autoAnimate from "@formkit/auto-animate";
 
-const exampleCode = `
-SELECT 
-*
-FROM 
-listings
-WHERE 
-geohash = "hash"
-AND LOWER(name) LIKE  LOWER("listing")
-ORDER BY 
-distance;
-`;
-
 type Props = {
   sql: string;
+  enableClipboard?: boolean;
 };
 
-export default function Code({ sql }: Props) {
+export default function Code({ sql, enableClipboard = true }: Props) {
   const parent = useRef<HTMLDivElement>(null);
   const [copied, setCopied] = useState(false);
   const code = format(sql);
@@ -36,16 +25,19 @@ export default function Code({ sql }: Props) {
 
   return (
     <div>
-      <div className="rounded-tl-md rounded-tr-md border-t  border-l border-r border-zinc-800 bg-zinc-800/20 py-1 px-4 text-right text-white">
-        <div ref={parent}>
-          {!copied && (
-            <CopyToClipboard text={code} onCopy={handleCopy}>
-              <p className="cursor-pointer text-sm">Copy code</p>
-            </CopyToClipboard>
-          )}
-          {copied ? <p className="ml-2 text-sm">Copied!</p> : null}
+      {enableClipboard && (
+        <div className="rounded-tl-md rounded-tr-md border-t  border-l border-r border-zinc-800 bg-zinc-800/20 py-1 px-4 text-right text-white">
+          <div ref={parent}>
+            {!copied && (
+              <CopyToClipboard text={code} onCopy={handleCopy}>
+                <p className="cursor-pointer text-sm">Copy code</p>
+              </CopyToClipboard>
+            )}
+            {copied ? <p className="ml-2 text-sm">Copied!</p> : null}
+          </div>
         </div>
-      </div>
+      )}
+
       <div>
         <SyntaxHighlighter
           language="sql"
