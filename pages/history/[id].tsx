@@ -1,7 +1,8 @@
 import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import autoAnimate from "@formkit/auto-animate";
 import Code from "../../components/Code";
 import QueryForm, { FormValues } from "../../components/Form";
 
@@ -37,6 +38,7 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
 export default function HistoryDetails({ history }: { history: any }) {
   const [result, setResult] = useState(history.query_completion);
   const [loading, setLoading] = useState(false);
+  const parent = useRef<HTMLDivElement>(null);
 
   const generateQuery = async (values: FormValues) => {
     setLoading(true);
@@ -51,8 +53,8 @@ export default function HistoryDetails({ history }: { history: any }) {
     const data = await response.json();
 
     setResult(data.result);
-
     setLoading(false);
+    parent.current && autoAnimate(parent.current);
   };
 
   return (
@@ -80,7 +82,7 @@ export default function HistoryDetails({ history }: { history: any }) {
           </div>
         </div>
         <div>
-          <div className="my-6 p-6">
+          <div className="my-6 p-6" ref={parent}>
             {result && !loading && (
               <>
                 <h2 className="mb-5 text-xl text-white"></h2>

@@ -1,11 +1,13 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import autoAnimate from "@formkit/auto-animate";
 import Code from "../components/Code";
 import QueryForm, { FormValues } from "../components/Form";
 
 export default function Home() {
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
+  const parent = useRef<HTMLDivElement>(null);
 
   const generateQuery = async (values: FormValues) => {
     setLoading(true);
@@ -20,6 +22,7 @@ export default function Home() {
 
     setResult(data.result);
     setLoading(false);
+    parent.current && autoAnimate(parent.current);
   };
 
   return (
@@ -40,14 +43,14 @@ export default function Home() {
           </div>
         </div>
         <div>
-          <div className="my-6 p-6">
+          <div className="my-6 p-6" ref={parent}>
             {result && (
-              <>
+              <div>
                 <h2 className="mb-5 text-xl text-white">
                   Ta-da! Here&apos;s your sql query
                 </h2>
                 <Code sql={result} />
-              </>
+              </div>
             )}
             {!result && (
               <h2 className="py-6 text-center text-2xl text-zinc-700">
