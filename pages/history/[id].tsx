@@ -36,8 +36,11 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
 
 export default function HistoryDetails({ history }: { history: any }) {
   const [result, setResult] = useState(history.query_completion);
+  const [loading, setLoading] = useState(false);
 
   const generateQuery = async (values: FormValues) => {
+    setLoading(true);
+
     const response = await fetch("/api/generate", {
       method: "POST",
       headers: {
@@ -48,6 +51,8 @@ export default function HistoryDetails({ history }: { history: any }) {
     const data = await response.json();
 
     setResult(data.result);
+
+    setLoading(false);
   };
 
   return (
@@ -76,15 +81,20 @@ export default function HistoryDetails({ history }: { history: any }) {
         </div>
         <div>
           <div className="my-6 p-6">
-            {result && (
+            {result && !loading && (
               <>
                 <h2 className="mb-5 text-xl text-white"></h2>
                 <Code sql={result} />
               </>
             )}
+            {result && loading && (
+              <h2 className="py-6 text-center text-2xl text-zinc-700">
+                Generating sql...
+              </h2>
+            )}
             {!result && (
               <h2 className="py-6 text-center text-2xl text-zinc-700">
-                SQL output
+                {loading ? "Generating sql..." : "SQL output"}
               </h2>
             )}
           </div>
