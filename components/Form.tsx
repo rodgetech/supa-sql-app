@@ -47,7 +47,7 @@ export default function QueryForm(props: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
       <div className="space-y-5">
-        <h2 className="text-xl text-white">
+        <h2 className="text-xl font-bold text-white">
           1. Please describe your{" "}
           <span className="underline decoration-purple-500 underline-offset-4">
             tables
@@ -103,7 +103,7 @@ export default function QueryForm(props: Props) {
         </div>
       </div>
       <div className="space-y-5">
-        <h2 className="text-xl text-white">
+        <h2 className="text-xl font-bold text-white">
           2. What would you like your{" "}
           <span className="underline decoration-purple-500 underline-offset-4">
             query
