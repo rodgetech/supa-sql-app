@@ -32,7 +32,7 @@ export default async function handler(
     stop: ["#", ";"],
   });
 
-  const sql = `SELECT ${response.data.choices[0].text}`;
+  const sql = `SELECT ${response.data.choices[0].text};`;
 
   if (!session) return res.status(200).json({ result: sql });
 
