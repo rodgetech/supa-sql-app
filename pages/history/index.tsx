@@ -5,7 +5,7 @@ import {
 } from "@supabase/auth-helpers-nextjs";
 import { GetServerSidePropsContext } from "next";
 import Link from "next/link";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import Code from "../../components/Code";
 import { getRelativeTime } from "../../utils/helpers";
 
@@ -100,11 +100,11 @@ export default function HistoryList({
                 </div>
               </Link>
               <div className="mt-4 flex justify-between">
-                <p className="  text-zinc-500">
+                <p className=" text-sm text-zinc-500">
                   {getRelativeTime(new Date(), new Date(h.created_at))}
                 </p>
                 <p
-                  className="z-50 cursor-pointer text-zinc-500 hover:text-zinc-300"
+                  className="z-50 cursor-pointer text-sm text-zinc-500 hover:text-zinc-300"
                   onClick={() => remove(h.id)}
                 >
                   Delete
