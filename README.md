@@ -1,5 +1,7 @@
 # Supa Sql App
 
+Turn your words into sql.
+
 ## Overview
 
 Supa sql app is service to assist people with writting their sql queries. Sometimes you know in your mind what your queries should do but you don't know quite exactly how to write out the query itself. Supa sql app helps by allowing you to describe your tables in plain human langauge and outputs the generated sql query as per your instructions.

@@ -1,6 +1,5 @@
 import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { GetServerSidePropsContext } from "next";
-import Head from "next/head";
 import { useRef, useState } from "react";
 import autoAnimate from "@formkit/auto-animate";
 import Code from "../../components/Code";
@@ -59,15 +58,6 @@ export default function HistoryDetails({ history }: { history: any }) {
 
   return (
     <>
-      <Head>
-        <title>History</title>
-        <meta
-          name="description"
-          content="Generated sql queries using human language"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <div className="grid h-full  grid-cols-2">
         <div className=" border-r border-zinc-800">
           <div className="my-6 p-6">
