@@ -25,7 +25,8 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   const { data } = await supabase
     .from("translation_histories")
     .select("*")
-    .eq("profile_id", session.user.id);
+    .eq("profile_id", session.user.id)
+    .order("created_at", { ascending: false });
 
   return {
     props: {
@@ -37,9 +38,8 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
 };
 
 export default function History({ history }: { user: User; history: any[] }) {
-  console.log(history);
   return (
-    <div className="mx-auto my-6 w-8/12">
+    <div className="mx-auto mt-6 w-8/12 pb-20">
       <div className="mt-12">
         <h2 className="text-xl text-white">Your history</h2>
       </div>
