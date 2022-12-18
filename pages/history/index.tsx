@@ -5,6 +5,7 @@ import {
 import { GetServerSidePropsContext } from "next";
 import Link from "next/link";
 import Code from "../../components/Code";
+import { getRelativeTime } from "../../utils/helpers";
 
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   // Create authenticated Supabase Client
@@ -57,6 +58,9 @@ export default function HistoryList({
                 <div className="max-h-[150px] overflow-hidden">
                   <Code sql={h.query_completion} enableClipboard={false} />
                 </div>
+                <p className="mt-4 text-zinc-500">
+                  {getRelativeTime(new Date(), new Date(h.created_at))}
+                </p>
               </div>
             </Link>
           ))}
