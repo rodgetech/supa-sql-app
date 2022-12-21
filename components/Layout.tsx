@@ -43,7 +43,11 @@ export default function Layout({ children }: Props) {
               <h3
                 className={`text-2xl  font-bold tracking-tight text-white ${jetBrainsMono.className}`}
               >
-                Supa<span className="text-purple-700 ">Sql</span>App
+                Supa
+                <span className="border-b-2  border-purple-700 text-zinc-300">
+                  Sql
+                </span>
+                App
               </h3>
             </Link>
           </div>
