@@ -4,9 +4,9 @@ Turn your words into sql.
 
 ## Overview
 
-Supa sql app is service to assist people with writing their sql queries. Sometimes you know in your mind what your queries should do but you don't know quite exactly how to write out the query itself. Supa sql app helps by allowing you to describe your tables in plain human langauge and outputs the generated sql query as per your instructions.
+Supa sql app is a service to assist people with writing their sql queries. Sometimes you know in your mind what your queries should do but you don't know quite exactly how to write out the query itself. Supa sql app helps by allowing you to describe your tables in plain human langauge and outputs the generated sql query as per your instructions.
 
-While the main purpose of this project is to showcase as part of the Supabase hackaton, I hope that some people may find it useful while writing basic and complex queries.
+While the main purpose of this project is to showcase as part of the Supabase Hackathon, I hope that some people may find it useful while writing basic and complex queries.
 
 ## Features
 
@@ -24,7 +24,7 @@ I was to only person to work on this project. You can find me on [Twitter](https
 
 ## Supabase usage
 
-The supase services I used:
+The supabase services I used:
 
 - Authentication
 - Database
